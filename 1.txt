@@ -74,6 +74,14 @@ public class CalServer {
 }
 
 
+coding in termininal--
+touch hello.x
+rpcgen -f Makefile.hello
+./hello_server
+
+./hello_client localhost
+
+
 
 MPI
 
@@ -107,12 +115,16 @@ int main(int argc, char** argv)
 	return 0;
 }
 
+
+****cooding in terminal -------
 touch mpi1.c
 
 mpicc mpi1.c -o npi
 mpirun -np 2 ./npi
 
 mpirun -np 4 ./npi
+
+
 
 
 RPC
@@ -243,6 +255,11 @@ sum_1_svc(numbers *argp, struct svc_req *rqstp)
 	static int  result=0;
 
 	result = argp->a - argp->b;
-
 	return &result;
 }
+
+
+****cooding in terminal --
+make -f Makefile.hello
+./hello_server
+./hello_client localhost
