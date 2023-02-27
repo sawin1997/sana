@@ -75,11 +75,23 @@ public class CalServer {
 
 
 coding in termininal--
-touch hello.x
-rpcgen -f Makefile.hello
-./hello_server
+touch calinterface.java
+touch cal.java
+touch calserver.java
+touch calclient.java
 
-./hello_client localhost
+javac calinterface.java
+javac cal.java
+javac calserver.java
+javac calclient.java
+
+rmic cal
+
+rmiregistry &
+
+java calserver
+
+java calclient
 
 
 
@@ -260,6 +272,9 @@ sum_1_svc(numbers *argp, struct svc_req *rqstp)
 
 
 ****cooding in terminal --
+
+rpcgen -aC hello.x
 make -f Makefile.hello
 ./hello_server
+
 ./hello_client localhost
